@@ -1,0 +1,15 @@
+---
+- name: Ensure ca-certificates package is present
+  apt:
+    name: ca-certificates
+    update_cache: yes
+    cache_valid_time: 3600
+    state: present
+
+- name: Add Percona APT Repository
+  apt:
+    deb: https://repo.percona.com/apt/percona-release_0.1-4.{{ ansible_distribution_release }}_all.deb
+
+- name: Update APT cache
+  apt:
+    update_cache: yes
