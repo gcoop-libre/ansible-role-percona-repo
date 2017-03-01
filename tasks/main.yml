@@ -1,15 +1,11 @@
 ---
-- name: Ensure ca-certificates package is present
-  apt:
-    name: ca-certificates
-    update_cache: yes
-    cache_valid_time: 3600
-    state: present
+- include: tasks/download-remote.yml
+  static: false
+  when: not percona_repo_download_local
 
-- name: Add Percona APT Repository
-  apt:
-    deb: https://repo.percona.com/apt/percona-release_{{ percona_repo_version }}-{{ percona_repo_review }}.{{ ansible_distribution_release | lower }}_all.deb
-  register: percona_repo_added
+- include: tasks/download-local.yml
+  static: false
+  when: percona_repo_download_local
 
 - name: Update APT cache
   apt:
