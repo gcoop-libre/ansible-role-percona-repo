@@ -8,8 +8,10 @@
 
 - name: Add Percona APT Repository
   apt:
-    deb: https://repo.percona.com/apt/percona-release_0.1-4.{{ ansible_distribution_release }}_all.deb
+    deb: https://repo.percona.com/apt/percona-release_{{ percona_repo_version }}-{{ percona_repo_review }}.{{ ansible_distribution_release | lower }}_all.deb
+  register: percona_repo_added
 
 - name: Update APT cache
   apt:
     update_cache: yes
+  when: percona_repo_added | changed
