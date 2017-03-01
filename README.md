@@ -11,7 +11,15 @@ None.
 Role Variables
 --------------
 
-None.
+Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+    percona_repo_download_local: False
+
+When this option is set to `True`, the `Percona deb file` will be downloaded locally and then it will be uploaded to the remote host for it's installation.
+
+    percona_repo_temp_directory_mask: /tmp/percona_repo.XXXXXXXXXX
+
+This property sets the mask used to create the local temporal directory where the `Percona deb file` will be locally downloaded.
 
 Dependencies
 ------------
