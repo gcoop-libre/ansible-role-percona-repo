@@ -1,10 +1,8 @@
 ---
-- include: tasks/download-remote.yml
-  static: false
+- include_tasks: download-remote.yml
   when: not percona_repo_download_local
 
-- include: tasks/download-local.yml
-  static: false
+- include_tasks: download-local.yml
   when: percona_repo_download_local
 
 - name: Update APT cache
