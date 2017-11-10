@@ -6,7 +6,7 @@
   changed_when: false
   register: percona_repo_temp_dir
 
-- name: Download Percona Repo DEB file
+- name: Download Percona Repo file
   get_url:
     url: "{{ percona_repo_url }}"
     dest: "{{ percona_repo_temp_dir.stdout }}"
@@ -15,9 +15,9 @@
   delegate_to: localhost
   changed_when: false
 
-- name: Copy DEB file to target host
+- name: Copy Percona Repo file to target host
   copy:
-    src: "{{ percona_repo_temp_dir.stdout + '/' + percona_repo_deb_file }}"
+    src: "{{ percona_repo_temp_dir.stdout + '/' + percona_repo_file }}"
     dest: /tmp/
     force: yes
     owner: root
@@ -27,5 +27,13 @@
 
 - name: Add Percona APT Repository
   apt:
-    deb: /tmp/{{ percona_repo_deb_file }}
+    deb: /tmp/{{ percona_repo_file }}
   register: percona_repo_added
+  when: ansible_os_family == 'Debian'
+
+- name: Add Percona YUM Repository
+  yum:
+    name: /tmp/{{ percona_repo_file }}
+    state: present
+  register: percona_repo_added
+  when: ansible_os_family == 'RedHat'
