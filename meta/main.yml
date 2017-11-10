@@ -8,10 +8,22 @@ galaxy_info:
   license: GPLv2
   min_ansible_version: 2.4
   platforms:
+    - name: Debian
+      versions:
+        - all
     - name: Ubuntu
       versions:
         - all
-    - name: Debian
+    - name: EL
+      versions:
+        - all
+    - name: CentOS
+      versions:
+        - all
+    - name: RedHat
+      versions:
+        - all
+    - name: Fedora
       versions:
         - all
   galaxy_tags:
