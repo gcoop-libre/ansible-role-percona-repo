@@ -35,5 +35,4 @@
   yum:
     name: /tmp/{{ percona_repo_file }}
     state: present
-  register: percona_repo_added
   when: ansible_os_family == 'RedHat'
