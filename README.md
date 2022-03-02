@@ -15,11 +15,11 @@ Available variables are listed below, along with default values (see `defaults/m
 
     percona_repo_version: 0.1
 
-Version of the Percona repository. Currently only 0.1 allowed.
+Version of the Percona repository. Currently only 0.1 allowed. Only used for RedHat / CentOS.
 
     percona_repo_review: 5
 
-Review of the Percona repository. Currently only from 1 to 5 allowed for Debian / Ubuntu. RedHat / CentOS should be from 1 to 4.
+Review of the Percona repository. Only used for Redhat / CentOS.
 
     percona_repo_download_local: False
 
@@ -28,6 +28,10 @@ When this option is set to `True`, the `Percona deb file` will be downloaded loc
     percona_repo_temp_directory_mask: /tmp/percona_repo.XXXXXXXXXX
 
 This property sets the mask used to create the local temporal directory where the `Percona deb file` will be locally downloaded.
+
+    percona_repo_repository: ''
+
+Repository to enable after installing `percona-release`, for example `ps-80`. On Debian 11 use `ps-57 testing` for percona 5.7. Leave undefined to avoid enabling any repo.
 
 Dependencies
 ------------
