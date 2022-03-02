@@ -5,6 +5,10 @@
 - include_tasks: download-local.yml
   when: percona_repo_download_local
 
+- name: Enable the repo
+  shell: percona-release enable-only {{ percona_repo_repository }}
+  when: percona_repo_repository is defined
+
 - name: Update APT cache
   apt:
     update_cache: yes

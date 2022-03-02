@@ -29,6 +29,10 @@ When this option is set to `True`, the `Percona deb file` will be downloaded loc
 
 This property sets the mask used to create the local temporal directory where the `Percona deb file` will be locally downloaded.
 
+    percona_repo_repository: ''
+
+Repository to enable after installing `percona-release`, for example `ps-80`. On Debian 11 use `ps-57 testing` for percona 5.7. Leave undefined to avoid enabling any repo.
+
 Dependencies
 ------------
 
