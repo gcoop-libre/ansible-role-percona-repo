@@ -15,11 +15,11 @@ Available variables are listed below, along with default values (see `defaults/m
 
     percona_repo_version: 0.1
 
-Version of the Percona repository. Currently only 0.1 allowed.
+Version of the Percona repository. Currently only 0.1 allowed. Only used for RedHat / CentOS.
 
     percona_repo_review: 5
 
-Review of the Percona repository. Currently only from 1 to 5 allowed for Debian / Ubuntu. RedHat / CentOS should be from 1 to 4.
+Review of the Percona repository. Only used for Redhat / CentOS.
 
     percona_repo_download_local: False
 
